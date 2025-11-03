@@ -24,6 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <html lang="en" suppressContentEditableWarning>
       <head>
         <link
           rel="apple-touch-icon"
@@ -64,6 +65,7 @@ export default function RootLayout({
         <div className="min-h-screen">{children}</div>
         <Footer />
       </body>
+      </html>
     </html>
   );
 }
