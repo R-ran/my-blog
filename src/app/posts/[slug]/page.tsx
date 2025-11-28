@@ -3,11 +3,13 @@ import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug } from "@/lib/api";
 import { CMS_NAME } from "@/lib/constants";
 import markdownToHtml from "@/lib/markdownToHtml";
+import { extractHeadings } from "@/lib/extractHeadings";
 import Alert from "@/app/_components/alert";
 import Container from "@/app/_components/container";
 import Header from "@/app/_components/header";
 import { PostBody } from "@/app/_components/post-body";
 import { PostHeader } from "@/app/_components/post-header";
+import { TableOfContents } from "@/app/_components/table-of-contents";
 
 export default async function Post(props: Params) {
   const params = await props.params;
@@ -18,6 +20,7 @@ export default async function Post(props: Params) {
   }
 
   const content = await markdownToHtml(post.content || "");
+  const headings = await extractHeadings(post.content || "");
 
   return (
     <main>
@@ -31,7 +34,16 @@ export default async function Post(props: Params) {
             date={post.date}
             author={post.author}
           />
-          <PostBody content={content} />
+          <div className="flex gap-8">
+            <div className="flex-1">
+              <PostBody content={content} />
+            </div>
+            {headings.length > 0 && (
+              <aside className="hidden lg:block w-64 flex-shrink-0">
+                <TableOfContents headings={headings} />
+              </aside>
+            )}
+          </div>
         </article>
       </Container>
     </main>
