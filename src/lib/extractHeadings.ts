@@ -39,7 +39,7 @@ export async function extractHeadings(markdown: string): Promise<Heading[]> {
   }
 
   function traverse(node: any) {
-    if (node.type === "heading") {
+    if (node.type === "heading" && node.depth === 2) {
       const text = getTextFromNode(node).trim();
       
       if (text) {

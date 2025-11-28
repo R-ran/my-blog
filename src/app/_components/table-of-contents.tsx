@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Heading } from "@/lib/extractHeadings";
+import { ContactForm } from "./contact-form";
 
 type Props = {
   headings: Heading[];
@@ -60,8 +61,8 @@ export function TableOfContents({ headings }: Props) {
   };
 
   return (
-    <nav className="sticky top-20 max-h-[calc(100vh-5rem)] overflow-y-auto pr-4">
-      <div className="text-sm">
+    <div className="sticky top-20 pr-4 flex flex-col">
+      <nav className="text-sm mb-4">
         <div className="font-semibold text-gray-700 dark:text-gray-300 mb-4 uppercase tracking-wide">
           CONTENTS
         </div>
@@ -92,8 +93,9 @@ export function TableOfContents({ headings }: Props) {
             );
           })}
         </ul>
-      </div>
-    </nav>
+      </nav>
+      <ContactForm />
+    </div>
   );
 }
 
