@@ -57,7 +57,7 @@ export function ContactForm() {
   };
 
   return (
-    <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+    <div className="mt-2 pt-2 border-t border-gray-200 dark:border-gray-700">
       <h3 className="font-semibold text-gray-700 dark:text-gray-300 mb-2 uppercase tracking-wide text-sm">
         CONTACT US
       </h3>

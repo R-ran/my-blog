@@ -62,7 +62,7 @@ export function TableOfContents({ headings }: Props) {
 
   return (
     <div className="sticky top-20 pr-4 flex flex-col">
-      <nav className="text-sm mb-4">
+      <nav className="text-sm mb-2">
         <div className="font-semibold text-gray-700 dark:text-gray-300 mb-4 uppercase tracking-wide">
           CONTENTS
         </div>
